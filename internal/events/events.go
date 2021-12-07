@@ -1,6 +1,6 @@
 package events
 
-import uuid "github.com/satori/go.uuid"
+import "github.com/gofrs/uuid"
 
 type ProductCreatedEvent struct {
 	ProductID    uuid.UUID `json:"product_id" validate:"required"`

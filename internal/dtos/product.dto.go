@@ -1,6 +1,6 @@
 package dtos
 
-import uuid "github.com/satori/go.uuid"
+import "github.com/gofrs/uuid"
 
 type ProductDto struct {
 	ProductID   uuid.UUID `json:"product_id" validate:"required"`
