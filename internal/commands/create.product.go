@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/gichohi/go-cqrs-rabbitmq/internal/models"
 	"github.com/gichohi/go-cqrs-rabbitmq/internal/repository"
-	rabbitmq "github.com/gichohi/go-cqrs-rabbitmq/pkg"
+	"github.com/gichohi/go-cqrs-rabbitmq/pkg/rabbitmq"
 	"log"
 )
 

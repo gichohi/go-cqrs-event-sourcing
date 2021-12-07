@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/gichohi/go-cqrs-rabbitmq/api"
 	"github.com/gichohi/go-cqrs-rabbitmq/internal/db"
+	store "github.com/gichohi/go-cqrs-rabbitmq/pkg/eventstore"
 	"log"
 	"net"
 	"net/http"
@@ -15,6 +16,11 @@ func main() {
 	ctx, _ := context.WithCancel(context.Background())
 
 	db.InitDB()
+
+	_, err := store.InitStore()
+	if err != nil {
+		log.Fatalf("Error occurred: %s", err.Error())
+	}
 
 	addr := ":8080"
 	listener, err := net.Listen("tcp", addr)

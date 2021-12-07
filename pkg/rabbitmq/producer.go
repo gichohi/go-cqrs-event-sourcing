@@ -11,7 +11,12 @@ func Publish(msg string, queue string, exchange string) error {
 	if err != nil {
 		panic(err)
 	}
-	defer connectRabbitMQ.Close()
+	defer func(connectRabbitMQ *amqp.Connection) {
+		err := connectRabbitMQ.Close()
+		if err != nil {
+
+		}
+	}(connectRabbitMQ)
 
 	channelRabbitMQ, err := connectRabbitMQ.Channel()
 	if err != nil {
