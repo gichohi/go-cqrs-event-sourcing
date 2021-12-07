@@ -17,7 +17,7 @@ type ProductCreateEvent struct {
 }
 
 func InitStore() (*esdb.Client, error) {
-	settings, err := esdb.ParseConnectionString("{connectionString}")
+	settings, err := esdb.ParseConnectionString("{cectionString}")
 
 	if err != nil {
 		panic(err)
