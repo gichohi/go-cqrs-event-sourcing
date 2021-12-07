@@ -1,2 +1,2 @@
 # go-cqrs-rabbitmq
-# cqrs-event-sourcing
+## Event Sourcing CQRS with RabbitMQ
