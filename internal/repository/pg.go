@@ -2,7 +2,6 @@ package repository
 
 import (
 	"database/sql"
-	"encoding/json"
 	"fmt"
 	"github.com/gichohi/go-cqrs-rabbitmq/internal/db"
 	"github.com/gichohi/go-cqrs-rabbitmq/internal/models"
@@ -27,9 +26,4 @@ func  CreateProduct(product *models.Product) (sql.Result, error) {
 	}
 
 	return res, err
-}
-
-func Test(product *models.Product) string {
-	json, _ := json.Marshal(product)
-	return string(json)
 }

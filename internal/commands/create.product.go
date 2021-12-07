@@ -1,9 +1,12 @@
 package commands
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/gichohi/go-cqrs-rabbitmq/internal/models"
 	"github.com/gichohi/go-cqrs-rabbitmq/internal/repository"
+	rabbitmq "github.com/gichohi/go-cqrs-rabbitmq/pkg"
+	"log"
 )
 
 type CreateProductCommandHandler interface {
@@ -20,4 +23,15 @@ func (command *CreateProductCommand) Handle() {
 	}
 	fmt.Println(res)
 
+	exchange := "products"
+	queue := "created"
+
+	msgBytes, _ := json.Marshal(user)
+
+	msg := string(msgBytes)
+
+	err = rabbitmq.Publish(msg, queue, exchange)
+	if err != nil {
+		log.Println("RabbitMQ Error: ", err)
+	}
 }
